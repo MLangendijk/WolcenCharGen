@@ -1,32 +1,31 @@
 import { UTILS } from './src/utils';
-import { STATS, BASE } from './src/stats';
+import Character from './src/character/character';
 let output;
 
 const app = {
+    character: null,
+
     start: function () {
         output = document.createElement('div');
         output.id = 'output';
         document.body.appendChild(output);
 
+        this.character = new Character();
         this.generateFields();
     },
 
     generateFields: function () {
-        Object.keys(BASE).forEach(stat => {
-            if (BASE[stat].hidden) {
-                return;
-            }
+        const stats = this.character.getInitialStats();
 
-            output.appendChild(UTILS.createStat(BASE[stat], stat));
+        stats.forEach(stat => {
+            output.appendChild(UTILS.createInput(stat));
         });
 
-        Object.keys(STATS).forEach(stat => {
-            if (STATS[stat].hidden) {
-                return;
-            }
+        const button = document.createElement('button');
+        button.addEventListener('click', this.character.exportJSON.bind(this.character));
+        button.innerText = 'Save';
 
-            output.appendChild(UTILS.createStat(STATS[stat], stat));
-        });
+        output.appendChild(button);
     }
 };
 

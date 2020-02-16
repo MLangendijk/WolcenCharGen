@@ -1,6 +1,38 @@
-import {CHAR_TYPES} from "./chartypes";
+import {CHAR_TYPES} from "./character/chartypes";
 
 export const UTILS = {
+
+    /**
+     * Creates the input fields based on a stat type.
+     *
+     * @param {Object} data - The data.
+     * @param {string} data.label - The data label.
+     * @param {Object} data.fields - The data fields.
+     */
+    createInput: function (data) {
+        const output = document.createElement('div');
+        const fields = data.fields;
+        const label = document.createElement('span');
+        const fieldWrapper = document.createElement('div');
+
+        label.innerHTML = data.label;
+        fieldWrapper.classList.add('wrapper');
+        output.classList.add('stattype');
+
+        output.appendChild(label);
+        output.appendChild(fieldWrapper);
+
+        Object.keys(fields).forEach(stat => {
+            if (fields[stat].hidden) {
+                return;
+            }
+
+            fieldWrapper.appendChild(UTILS.createStat(fields[stat], stat));
+        });
+
+        return output;
+    },
+
     createStat: function (data, id) {
         let stat = document.createElement('div'),
             label = document.createElement('span'),
