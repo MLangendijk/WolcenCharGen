@@ -1,6 +1,8 @@
 import { BASE } from './base';
 import { STATS } from './stats';
 import {CHAR_TYPES} from "./chartypes";
+import {CHARCUSTOMISATION} from "./charactercustomisation";
+import CONFIG from '../config';
 
 export default class Character {
 
@@ -10,7 +12,7 @@ export default class Character {
 
     getInitialStats () {
         return [
-            BASE, STATS
+            BASE, CHARCUSTOMISATION, STATS
         ];
     }
 
@@ -45,12 +47,16 @@ export default class Character {
     exportJSON () {
         this.saveStats();
 
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this._stats));
-        const downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href", dataStr);
-        downloadAnchorNode.setAttribute("download", this._stats.Name + ".json");
-        document.body.appendChild(downloadAnchorNode); // required for firefox
-        downloadAnchorNode.click();
-        downloadAnchorNode.remove();
+        if (CONFIG.DOWNLOAD_ENABLED) {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this._stats));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", this._stats.Name + ".json");
+            document.body.appendChild(downloadAnchorNode); // required for firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        } else {
+            console.log(this._stats);
+        }
     }
 };

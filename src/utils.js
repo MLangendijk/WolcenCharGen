@@ -21,6 +21,7 @@ export const UTILS = {
 
         output.appendChild(label);
         output.appendChild(fieldWrapper);
+        let added = 0;
 
         Object.keys(fields).forEach(stat => {
             if (fields[stat].hidden) {
@@ -28,7 +29,12 @@ export const UTILS = {
             }
 
             fieldWrapper.appendChild(UTILS.createStat(fields[stat], stat));
+            added++;
         });
+
+        if (!added) {
+            output.classList.add('hidden');
+        }
 
         return output;
     },
