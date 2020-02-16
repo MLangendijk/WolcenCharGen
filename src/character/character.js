@@ -2,6 +2,7 @@ import  BASE from './base';
 import STATS from './stats';
 import {CHAR_TYPES} from './chartypes';
 import CHARCUSTOMISATION from './charactercustomisation';
+import BELTCONFIG from './beltconfig';
 import SKILLS from './skills';
 import CONFIG from '../config';
 
@@ -13,7 +14,7 @@ export default class Character {
 
     getInitialStats () {
         return [
-            BASE, CHARCUSTOMISATION, STATS, ...SKILLS
+            BASE, CHARCUSTOMISATION, STATS, ...SKILLS, BELTCONFIG
         ];
     }
 
