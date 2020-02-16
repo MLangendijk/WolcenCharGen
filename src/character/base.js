@@ -1,6 +1,6 @@
 import {CHAR_TYPES} from "./chartypes";
 
-export const BASE = {
+export default {
     label: 'Base',
     fields: {
         NAME: {

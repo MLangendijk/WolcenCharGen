@@ -1,6 +1,6 @@
 import {CHAR_TYPES} from "./chartypes";
 
-export const CHARCUSTOMISATION = {
+export default {
 
     label: 'CharacterCustomisation',
     fields: {

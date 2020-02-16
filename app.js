@@ -18,7 +18,9 @@ const app = {
         const stats = this.character.getInitialStats();
 
         stats.forEach(stat => {
-            output.appendChild(UTILS.createInput(stat));
+            if (!stat.hidden) {
+                output.appendChild(UTILS.createInput(stat));
+            }
         });
 
         const button = document.createElement('button');

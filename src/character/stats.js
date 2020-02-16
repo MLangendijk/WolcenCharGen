@@ -1,6 +1,6 @@
 import { CHAR_TYPES } from "./chartypes";
 
-export const STATS = {
+export default {
     label: 'Stats',
     fields: {
         STRENGTH: {

@@ -1,7 +1,8 @@
-import { BASE } from './base';
-import { STATS } from './stats';
-import {CHAR_TYPES} from "./chartypes";
-import {CHARCUSTOMISATION} from "./charactercustomisation";
+import  BASE from './base';
+import STATS from './stats';
+import {CHAR_TYPES} from './chartypes';
+import CHARCUSTOMISATION from './charactercustomisation';
+import SKILLS from './skills';
 import CONFIG from '../config';
 
 export default class Character {
@@ -12,7 +13,7 @@ export default class Character {
 
     getInitialStats () {
         return [
-            BASE, CHARCUSTOMISATION, STATS
+            BASE, CHARCUSTOMISATION, STATS, ...SKILLS
         ];
     }
 
@@ -24,6 +25,11 @@ export default class Character {
 
     storeStatType (stat) {
         let savedStat = {};
+
+        if (stat.hidden) {
+            this._stats[stat.label] = stat.fields;
+            return;
+        }
 
         Object.keys(stat.fields).forEach(field => {
             let data = stat.fields[field];
