@@ -50,6 +50,7 @@ export const UTILS = {
 
         output.appendChild(label);
         output.appendChild(select);
+        select.id = data.label;
 
         fields.forEach(field => {
             const option = document.createElement('option');
