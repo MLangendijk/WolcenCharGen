@@ -1,7 +1,6 @@
 import {CHAR_TYPES} from "./chartypes";
 
 export default {
-
     label: 'CharacterCustomisation',
     fields: {
         SEX: {
