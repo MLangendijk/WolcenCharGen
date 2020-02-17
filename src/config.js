@@ -1,3 +1,3 @@
 export default {
-    DOWNLOAD_ENABLED: false
+    DOWNLOAD_ENABLED: true
 }

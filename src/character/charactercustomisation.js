@@ -63,5 +63,6 @@ export default {
             hidden: true,
             type: CHAR_TYPES.NUMBER
         }
-    }
+    },
+    hidden: true
 };

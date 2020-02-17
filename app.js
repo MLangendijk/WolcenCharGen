@@ -1,5 +1,6 @@
 import { UTILS } from './src/utils';
 import Character from './src/character/character';
+import './bundle.less';
 let output;
 
 const app = {

@@ -19,7 +19,7 @@ export const UTILS = {
         fieldWrapper.classList.add('wrapper');
         output.classList.add('stattype');
 
-        output.appendChild(label);
+        //output.appendChild(label);
         output.appendChild(fieldWrapper);
         let added = 0;
 

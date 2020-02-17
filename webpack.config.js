@@ -24,5 +24,16 @@ let babelLoader = {
         }
     }
 };
+
+let lessRules = {
+    test: /\.less$/,
+    use: [
+        'style-loader',
+        'css-loader',
+        'less-loader'
+    ]
+};
+
 webpack_rules.push(babelLoader);
+webpack_rules.push(lessRules);
 module.exports = webpackOption;
