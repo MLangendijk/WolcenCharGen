@@ -10,6 +10,7 @@ import Versions from './versions'
 import CharacterCosmetics from './charactercosmetics';
 import Inventory from './inventory';
 import PSTConfig from './pstconfig';
+import ApocalypticData from './apocalypticdata';
 import CONFIG from '../config';
 
 export default class Character {
@@ -30,7 +31,8 @@ export default class Character {
             Versions,
             CharacterCosmetics,
             ...Inventory,
-            PSTConfig
+            PSTConfig,
+            ApocalypticData
         ];
     }
 
