@@ -11,6 +11,9 @@ import CharacterCosmetics from './charactercosmetics';
 import Inventory from './inventory';
 import PSTConfig from './pstconfig';
 import ApocalypticData from './apocalypticdata';
+import Tutorial from './tutorial';
+import Sequences from './sequences';
+import LastGameParameters from './lastgameparams';
 import CONFIG from '../config';
 
 export default class Character {
@@ -32,7 +35,10 @@ export default class Character {
             CharacterCosmetics,
             ...Inventory,
             PSTConfig,
-            ApocalypticData
+            ApocalypticData,
+            Tutorial,
+            Sequences,
+            LastGameParameters
         ];
     }
 
