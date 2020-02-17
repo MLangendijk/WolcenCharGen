@@ -39,6 +39,33 @@ export const UTILS = {
         return output;
     },
 
+    createSelect: function (data) {
+        const output = document.createElement('div');
+        const fields = data.fields;
+        const label = document.createElement('span');
+        const select = document.createElement('select');
+
+        label.innerHTML = data.label;
+        output.classList.add('stattype');
+
+        output.appendChild(label);
+        output.appendChild(select);
+        select.id = data.label;
+
+        fields.forEach(field => {
+            const option = document.createElement('option');
+            option.value = field.Name;
+            option.text = field.Name;
+            select.appendChild(option);
+        });
+
+        if (data.allowMultiple) {
+            select.multiple = true;
+        }
+
+        return output;
+    },
+
     createStat: function (data, id) {
         let stat = document.createElement('div'),
             label = document.createElement('span'),

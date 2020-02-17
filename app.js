@@ -19,7 +19,11 @@ const app = {
 
         stats.forEach(stat => {
             if (!stat.hidden) {
-                output.appendChild(UTILS.createInput(stat));
+                if (stat.type === 'select') {
+                    output.appendChild(UTILS.createSelect(stat));
+                } else {
+                    output.appendChild(UTILS.createInput(stat));
+                }
             }
         });
 
