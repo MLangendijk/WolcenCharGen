@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --open",
     "start_heroku": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.8.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
